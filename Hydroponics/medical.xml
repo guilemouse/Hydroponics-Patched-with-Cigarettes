@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This aims to bring in charcoal and other uses for nicotine and thc related items. Mainly through medfab. -->
+
+<!-- HEY DUM DUM YA YOU! (note to self) -->
+<!-- MAKE NICOTINE AND THC INTO SYRINGE ALREADY YOU HAVE THE SPRITE  -->
+<Items>
+<!-- Still need to do afflictions  -->
+  <ActivatedCoal name="Activated Coal" identifier="activatedcoal" category="Material" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="This was made from carbon to absorb poisons and radiation sickness." useinhealthinterface="true" scale="0.3" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="medcab" spawnprobability="0.5"/>
+    <PreferredContainer primary="wreckmedcab" minamount="0" maxamount="1" spawnprobability="0.5"/>
+    <Price locationtype="Research" buyprice="225" />
+    <Price locationtype="Military" buyprice="250" />
+    <Price locationtype="City" buyprice="250" />
+    <Price locationtype="Outpost" buyprice="250" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="60">
+      <RequiredSkill identifier="medical" level="40" />
+      <RequiredItem identifier="carbon" />
+      <RequiredItem identifier="carbon" />
+    </Fabricate>
+    <Deconstruct time="20">
+      <Item identifier="carbon" copycondition="true" mincondition="0.1" />
+      <Item identifier="carbon" copycondition="true" mincondition="0.1" />
+    </Deconstruct>
+	<!-- Meant to be treating all kinds of radiation and poisoning, but will kill if misused due to respiratory flooding -->
+    <SuitableTreatment identifier="radiationsickness" suitability="100" />
+	<SuitableTreatment identifier="nicotineoverdose" suitability="100" />
+    <SuitableTreatment identifier="opiateoverdose" suitability="100" />
+    <SuitableTreatment identifier="mjparalysis" suitability="100" />
+    <SuitableTreatment identifier="drunk" suitability="100" />
+    <SuitableTreatment identifier="morbusinepoisoning" suitability="100" />
+    <SuitableTreatment identifier="sufforinpoisoning" suitability="100" />
+    <SuitableTreatment identifier="deliriuminepoisoning" suitability="100" />
+    <SuitableTreatment identifier="cyanidepoisoning" suitability="100" />
+    <SuitableTreatment identifier="paralysis" suitability="100" />
+    <SuitableTreatment identifier="oxygenlow" suitability="-17.5" />
+
+    <InventoryIcon texture="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Medical/coalsyringeicon64px.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Medical/coalsyringe62px112.png" sourcerect="0,0,62,112" depth="0.6" origin="0.5,0.5" />
+    <Body width="60" height="110" density="20" />
+    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnFailure" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnUse" target="This" Condition="-50.0" disabledeltatime="true" />
+      <RequiredSkill identifier="medical" level="50"></RequiredSkill>
+      <StatusEffect tags="medical" type="OnUse" target="Character" duration="5.0">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        <ReduceAffliction identifier="radiationsickness" amount="20.0" />
+        <ReduceAffliction identifier="nicotineoverdose" amount="20.0" />
+        <ReduceAffliction identifier="opiateoverdose" amount="20.0" />
+        <ReduceAffliction identifier="mjparalysis" amount="20.0" />
+        <ReduceAffliction identifier="drunk" amount="20.0" />
+        <ReduceAffliction identifier="morbusinepoisoning" amount="20.0" />
+        <ReduceAffliction identifier="deliriuminepoisoning" amount="20.0" />
+        <ReduceAffliction identifier="sufforinpoisoning" amount="20.0" />
+        <ReduceAffliction identifier="cyanidepoisoning" amount="20.0" />
+        <ReduceAffliction identifier="paralysis" amount="20.0" />
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnFailure" target="Character" duration="5.0">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        <ReduceAffliction identifier="radiationsickness" amount="5.0" />
+        <ReduceAffliction identifier="nicotineoverdose" amount="5.0" />
+        <ReduceAffliction identifier="opiateoverdose" amount="5.0" />
+        <ReduceAffliction identifier="mjparalysis" amount="5.0" />
+        <ReduceAffliction identifier="drunk" amount="5.0" />
+        <ReduceAffliction identifier="morbusinepoisoning" amount="5.0" />
+        <ReduceAffliction identifier="deliriuminepoisoning" amount="5.0" />
+        <ReduceAffliction identifier="sufforinpoisoning" amount="5.0" />
+        <ReduceAffliction identifier="cyanidepoisoning" amount="5.0" />
+        <ReduceAffliction identifier="paralysis" amount="5.0" />
+		<!-- Should cause lower respiratory flooding in real life and thus oxygenlow in game. -->
+        <Affliction identifier="oxygenlow" amount="20" />
+        <Affliction identifier="organdamage" amount="1.5" />
+
+      </StatusEffect>
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+	<!-- Syringe gun usage below -->
+	<!-- Is suppose to do 5 seconds of the above reduction in affliction similar to those with no med skill -->
+	<!-- Should you do it in game? probably not -->
+	<!-- Can you do it? yes -->
+    <Projectile characterusable="false" launchimpulse="20.0" sticktocharacters="true" launchrotation="-90">
+      <StatusEffect type="OnImpact" target="This" Condition="-100.0" disabledeltatime="true">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnImpact" target="Character" duration="5.0">
+        <ReduceAffliction identifier="radiationsickness" amount="5.0" />
+        <ReduceAffliction identifier="radiationsickness" amount="5.0" />
+        <ReduceAffliction identifier="nicotineoverdose" amount="5.0" />
+        <ReduceAffliction identifier="opiateoverdose" amount="5.0" />
+        <ReduceAffliction identifier="mjparalysis" amount="5.0" />
+        <ReduceAffliction identifier="drunk" amount="5.0" />
+        <ReduceAffliction identifier="morbusinepoisoning" amount="5.0" />
+        <ReduceAffliction identifier="deliriuminepoisoning" amount="5.0" />
+        <ReduceAffliction identifier="sufforinpoisoning" amount="5.0" />
+        <ReduceAffliction identifier="cyanidepoisoning" amount="5.0" />
+        <ReduceAffliction identifier="paralysis" amount="5.0" />
+        <Affliction identifier="oxygenlow" amount="20" />
+        <Affliction identifier="organdamage" amount="1.5" />
+      </StatusEffect>
+    </Projectile>
+  </ActivatedCoal>
+  
+  <!-- Still need to do affliction test on this thing -->
+  <Nicotine name="Nicotine" identifier="nicotine" category="Material" Tags="smallitem" description="Neuropathic stimulant and very addictive. Poisonous when ingested." cargocontaineridentifier="chemicalcrate" scale="0.2" useinhealthinterface="true">
+    <PreferredContainer primary="medfabcab" minamount="2" maxamount="6" spawnprobability="1"/>
+    <PreferredContainer primary="wreckmedcab" minamount="0" maxamount="1" spawnprobability="0.5"/>
+    <!-- TODO: adjust prices -->
+    <Price locationtype="Research" buyprice="20" />
+    <Price locationtype="Military" buyprice="30" />
+    <Price locationtype="City" buyprice="30" />
+    <Price locationtype="Outpost" buyprice="30" />
+    <Price locationtype="Mine" buyprice="40" />
+	<!-- Commenting before I forget: -->
+		<!-- Meant to only satiate those that's addicted and should have a high chance to cause addiction -->
+		<!-- Overdose is common among nicotine concentrates which this is. -->
+		<!-- Meant to be an easier way to cure opiate addicts, however, this is a literaly 1 to 1 trade off -->
+		<!-- between opium addiction and nicotine as intended. -->
+    <SuitableTreatment identifier="damage" suitability="-20" />
+    <SuitableTreatment identifier="burn" suitability="-20" />
+    <SuitableTreatment identifier="opiateaddiction" suitability="20" />
+    <SuitableTreatment identifier="opiatewithdrawal" suitability="20" />
+    <SuitableTreatment identifier="nicotineaddiction" suitability="-8.75" />
+    <SuitableTreatment identifier="nicotineoverdose" suitability="-8.75" />
+    <SuitableTreatment identifier="oxygenlow" suitability="-17.5" />
+    <SuitableTreatment identifier="nicotinewithdrawal" suitability="15" />
+    <!-- <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,768,64,64" origin="0.5,0.5" /> -->
+    <Sprite texture="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Materials/CHN77px92.png" sourcerect="0,0,77,92" depth="0.55" origin="0.5,0.5" />
+    <Body width="90" height="60" density="20" />
+    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
+      <RequiredSkill identifier="medical" level="15"></RequiredSkill>
+      <StatusEffect type="OnFailure" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnUse" target="This" Condition="-50.0" disabledeltatime="true" />
+      <StatusEffect tags="medical" type="OnUse" target="Character" duration="5">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+		<ReduceAffliction identifier="opiatewithdrawal" amount="2" />
+		<ReduceAffliction identifier="opiateaddiction" amount="4" />
+        <Affliction identifier="nicotineaddiction" amount="4" />
+        <Affliction identifier="nicotineoverdose" amount="5" />
+        <Affliction identifier="oxygenlow" amount="10" />
+        <ReduceAffliction identifier="nicotinewithdrawal" amount="5" />
+      </StatusEffect>            
+      <StatusEffect tags="medical" type="OnFailure" target="Character" duration="5">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        <ReduceAffliction identifier="nicotinewithdrawal" amount="3" />
+        <Affliction identifier="oxygenlow" amount="20" />
+		<ReduceAffliction identifier="opiatewithdrawal" amount="1" />
+		<ReduceAffliction identifier="opiateaddiction" amount="1" />
+        <Affliction identifier="nicotineaddiction" amount="4" />
+        <Affliction identifier="nicotineoverdose" amount="5" />
+      </StatusEffect>
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </Nicotine>
+  <!-- To do: THC match smoking effects -->
+  <!-- THC Goes here NOT DONE YET KEEP GOING-->
+  <THC name="Tetrahydrocannabinol" identifier="thc" category="Material" Tags="smallitem" description="Cannabinoid used to alleviate pain." cargocontaineridentifier="chemicalcrate" scale="0.2" useinhealthinterface="true">
+    <PreferredContainer primary="medfabcab" minamount="2" maxamount="6" spawnprobability="1"/>
+    <PreferredContainer primary="wreckmedcab" minamount="0" maxamount="1" spawnprobability="0.5"/>
+    <!-- TODO: adjust prices -->
+    <Price locationtype="Research" buyprice="20" />
+    <Price locationtype="Military" buyprice="30" />
+    <Price locationtype="City" buyprice="30" />
+    <Price locationtype="Outpost" buyprice="30" />
+    <Price locationtype="Mine" buyprice="40" />
+	<!-- Comment before I forget: -->
+		<!-- Damage and Burns are the new healing properties of pure THC -->
+		<!-- It's suppose to get you blunt damage heal and burns while high, so this -->
+		<!-- is a more immediate buff. But misuseage should apply more MJ paralysis -->
+		<!-- Also It CAUSES PSYCHOSIS if medic is not skilled enough simulating a  -->
+		<!-- bad high when using THC wrongly but reduces psychosis if medic is skilled-->
+    <SuitableTreatment identifier="damage" suitability="20" />
+    <SuitableTreatment identifier="burn" suitability="20" />
+	<SuitableTreatment identifier="nicotinewithdrawal" suitability="20" />
+    <SuitableTreatment identifier="nicotineaddiction" suitability="20" />
+    <SuitableTreatment identifier="opiatewithdrawal" suitability="20" />
+    <SuitableTreatment identifier="opiateaddiction" suitability="20" />
+    <SuitableTreatment identifier="opiateoverdose" suitability="-8.75" />
+    <SuitableTreatment identifier="nicotineoverdose" suitability="-8.75" />
+    <SuitableTreatment identifier="oxygenlow" suitability="-17.5" />
+
+    <!-- <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,768,64,64" origin="0.5,0.5" /> -->
+    <Sprite texture="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Materials/THC77px92.png" sourcerect="0,0,77,92" depth="0.55" origin="0.5,0.5" />
+    <Body width="90" height="60" density="20" />
+    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="5,0" handle1="-5,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
+      <RequiredSkill identifier="medical" level="35"></RequiredSkill>
+      <StatusEffect type="OnFailure" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnUse" target="This" Condition="-50.0" disabledeltatime="true" />
+      <StatusEffect tags="medical" type="OnUse" target="Character" duration="5">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        <Affliction identifier="mjparalysis" amount="5" />
+        <Affliction identifier="mjhigh" amount="10" />
+        <ReduceAffliction identifier="burn" amount="2" />
+        <ReduceAffliction identifier="damage" amount="2" />
+        <ReduceAffliction identifier="nicotinewithdrawal" amount="4" />
+        <ReduceAffliction identifier="nicotineaddiction" amount="2" />
+		<ReduceAffliction identifier="opiatewithdrawal" amount="4" />
+		<ReduceAffliction identifier="opiateaddiction" amount="2" />
+		<!-- Intended to reduce only 80% of psychosis seeing how it suppose to go down on its own i think. -->
+        <ReduceAffliction identifier="psychosis" amount="16" />
+      </StatusEffect>            
+      <StatusEffect tags="medical" type="OnFailure" target="Character" duration="5">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        <ReduceAffliction identifier="nicotinewithdrawal" amount="3" />
+        <Affliction identifier="mjparalysis" amount="20" />
+        <Affliction identifier="mjhigh" amount="4" />
+        <Affliction identifier="psychosis" amount="10" />
+        <ReduceAffliction identifier="nicotinewithdrawal" amount="2" />
+        <ReduceAffliction identifier="nicotineaddiction" amount="1" />
+		<ReduceAffliction identifier="opiatewithdrawal" amount="2" />
+		<ReduceAffliction identifier="opiateaddiction" amount="1" />
+        <ReduceAffliction identifier="burn" amount="1" />
+        <ReduceAffliction identifier="damage" amount="1" />
+      </StatusEffect>
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+  </THC>
+
+</Items>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Hydroponics Patched (with Tobacco and Marijuana)" path="Mods/Hydroponics Patched with Cigarettes/filelist.xml" corepackage="false" gameversion="0.9.10.0">
+
+  <Item file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/hydroponicsmachines.xml" />
+  <Item file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/hydroponics.xml" />
+  <Item file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/materials.xml" />
+  <Item file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/medmaterials.xml" />
+  <Item file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/medical.xml" />
+  <Afflictions file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/afflictions.xml" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Materials/THC77px92.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Materials/CHN77px92.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Materials/Tobaccoleaf77px92.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Materials/tobaccoleaficon128px.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Medical/coalsyringe62px112.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Medical/coalsyringeicon64px.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Medical/nicotinesyringe62px112.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Medical/nicotinesyringeicon64px.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Medical/thcsyringe62px112.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Medical/thcsyringeicon64px.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Plants/cultivatedtobacco55px.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Plants/cultivatedweed55px.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Plants/lootablemarijuana120px160.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Plants/lootabletobacco120px160.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Plants/tobaccoseed55px.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Plants/weedseed55px.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Icons/nicotineicon120px.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Icons/nicotineodicon120px.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Icons/nicotinewithdrawalicon120px.png" />
+  <!-- override begins here -->
+
+  <Item file="Mods/Hydroponics Patched with Cigarettes/Malborasek with Sound/medical.xml" />
+  <Afflictions file="Mods/Hydroponics Patched with Cigarettes/Malborasek with Sound/Afflictions.xml" />
+  <Particles file="Mods/Hydroponics Patched with Cigarettes/Malborasek with Sound/ParticlePrefabs.xml" />
+
+  <!-- Override begins here for Cigarette Mod With Sound -->
+  <None file="Mods/Hydroponics Patched with Cigarettes/Malborasek with Sound/Textures/Other.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Malborasek with Sound/Textures/Other2.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Malborasek with Sound/Sounds/smokelong2.ogg" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Malborasek with Sound/Textures/Smoke.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Malborasek with Sound/Textures/marijuannaicon.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Malborasek with Sound/Textures/WeedCig.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Malborasek with Sound/Textures/cigaretteicon.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Malborasek with Sound/Textures/marijuannaicondebuff.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Malborasek with Sound/Textures/newpack120px.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Malborasek with Sound/Textures/oldpack120px.png" />
+  <None file="Mods/Hydroponics Patched with Cigarettes/Malborasek with Sound/Textures/weedcigaretteicon.png" />
+
+</contentpackage>

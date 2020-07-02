@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+<!-- For expanded Tobacco and Marijuana plants -->
+<!-- Notes: 120px by 160px for cultivated large plants -->
+<!-- 55px for seed bags and cultivated -->
+
+  <Item name="Tobacco Leaf" identifier="tobaccoleaf" category="Material" Tags="smallitem" canbepicked="true" description="A dried product of the tobacco plant used for making cigars." cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="storagecab" minamount="0" maxamount="2" spawnprobability="1"/>
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/>
+    <Deconstruct time="5">
+      <Item identifier="nicotine" outcondition="0.25"/>
+    </Deconstruct>
+
+    <!-- TODO: adjust prices -->
+    <Price locationtype="Research" buyprice="31" />
+    <Price locationtype="Military" buyprice="31" />
+    <Price locationtype="City" buyprice="31" />
+    <Price locationtype="Outpost" buyprice="31" />
+    <Price locationtype="Mine" buyprice="21" />
+    <InventoryIcon texture="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Materials/tobaccoleaficon128px.png" sourcerect="0,0,128,128" />
+    <Sprite texture="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Materials/Tobaccoleaf77px92.png" sourcerect="0,0,77,92" depth="0.55" origin="0.5,0.5" />
+    <Body width="90" height="60" density="50" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  
+</Items>

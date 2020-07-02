@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+<!-- For expanded Tobacco and Marijuana plants -->
+<!-- Notes: 120px by 160px for cultivated large plants -->
+<!-- 55px for seed bags and cultivated -->
+
+  <Item name="Marijuana Plant" identifier="marijuanaplant" category="Material" Tags="smallitem,plant" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="medfabcab" minamount="0" maxamount="4" spawnprobability="1"/>
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/>
+    <Deconstruct time="5">
+      <Item identifier="organicfiber" />
+      <Item identifier="thc" />
+      <Item identifier="thc" />
+    </Deconstruct>
+    <!-- <InventoryIcon texture="Content/Items/Materials/LootablePlants.png" sourcerect="0,0,108,166" /> -->
+    <Sprite texture="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Plants/lootablemarijuana120px160.png" depth="0.2" sourcerect="0,0,120,160" origin="0.5,0.5" />
+    <Body radius="30" height="50" density="12" />
+    <LevelResource deattachduration="1">
+      <Commonness commonness="8" />
+    </LevelResource>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect 
+        type="OnFire" 
+        target="This" >
+        <Remove />
+      </StatusEffect>
+
+    </Holdable>
+  </Item>
+  
+  <Item name="Tobacco Plant" identifier="tobaccoplant" category="Material" Tags="smallitem,plant" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="medfabcab" minamount="0" maxamount="4" spawnprobability="1"/>
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/>
+    <Deconstruct time="5">
+      <Item identifier="tobaccoleaf" />
+      <Item identifier="nicotine" />
+      <Item identifier="nicotine" />
+    </Deconstruct>
+    <!-- <InventoryIcon texture="Content/Items/Materials/LootablePlants.png" sourcerect="115,19,138,140" /> -->
+    <Sprite texture="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Plants/lootabletobacco120px160.png" depth="0.2" sourcerect="0,0,120,160" origin="0.5,0.5" />
+    <Body width="120" height="120" density="12" />
+    <LevelResource deattachduration="1">
+      <Commonness commonness="8" />
+    </LevelResource>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect 
+        type="OnFire" 
+        target="This" >
+        <Remove />
+      </StatusEffect>
+
+    </Holdable>
+  </Item>
+
+</Items>

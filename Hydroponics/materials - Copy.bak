@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+<!-- For expanded Tobacco and Marijuana plants -->
+<!-- Notes: 120px by 160px for cultivated large plants -->
+<!-- 55px for seed bags and cultivated -->
+
+  <Item name="THC" identifier="thc" category="Material" Tags="smallitem" canbepicked="true" description="Tetrahydrocannabinol used to alleviate pain." cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="storagecab" minamount="0" maxamount="2" spawnprobability="1"/>
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/>
+    <!-- TODO: adjust prices -->
+    <Price locationtype="Research" buyprice="31" />
+    <Price locationtype="Military" buyprice="31" />
+    <Price locationtype="City" buyprice="31" />
+    <Price locationtype="Outpost" buyprice="31" />
+    <Price locationtype="Mine" buyprice="21" />
+    <!-- <InventoryIcon texture="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Materials/InventoryIconAtlas.png" sourcerect="960,128,64,64" /> -->
+    <Sprite texture="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Materials/THC77px92.png" sourcerect="0,0,77,92" depth="0.55" origin="0.5,0.5" />
+    <Body width="90" height="60" density="50" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  
+  <Item name="Nicotine" identifier="nicotine" category="Material" Tags="smallitem" canbepicked="true" description="Neuropathic stimulant and very addictive." cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="storagecab" minamount="0" maxamount="2" spawnprobability="1"/>
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/>
+    <!-- TODO: adjust prices -->
+    <Price locationtype="Research" buyprice="31" />
+    <Price locationtype="Military" buyprice="31" />
+    <Price locationtype="City" buyprice="31" />
+    <Price locationtype="Outpost" buyprice="31" />
+    <Price locationtype="Mine" buyprice="21" />
+    <!-- <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,128,64,64" /> -->
+    <Sprite texture="Mods/Hydroponics Patched with Cigarettes/Hydroponics/Materials/CHN77px92.png" sourcerect="0,0,77,92" depth="0.55" origin="0.5,0.5" />
+    <Body width="90" height="60" density="50" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+
+</Items>
